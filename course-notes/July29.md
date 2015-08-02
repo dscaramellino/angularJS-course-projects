@@ -33,23 +33,23 @@ What goes in your Controller:
 
 What goes in your Custom Services (aka the Model):
 
-- business logic
-- server communication
-- shared state - things that need access across controllers
-- caching
-- factories
-- third-party javascript libraries
+- Business logic
+- Server communication
+- Shared state - things that need access across controllers
+- Caching
+- Factories
+- Third-party javascript libraries
 
 ### File organization
 
-- one file for your controller
-- one file for your services
-- one file for your view
+- One file for your controller
+- One file for your services
+- One file for your view
 
 Two approaches to making files talk
 
-1. create another module and make it a dependency
-1. give the secondary module the same name as the primary module; don't include array as second argument when defining secondary module
+1. Create another module and make it a dependency
+1. Give the secondary module the same name as the primary module; don't include array as second argument when defining secondary module
 
 **Approach 1:**
 in File A: `var myApp = angular.module('Primary Module', ['Secondary Module']);`

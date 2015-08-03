@@ -6,7 +6,7 @@ myApp.controller('myController', function() {
   ctrl.selectedTheme = "None";
   ctrl.fileName = undefined;
   ctrl.selectedFolder = undefined;
-  ctrl.hideFiles = true;
+  ctrl.hideFiles = false;
   ctrl.themesArr = ["None", "Primary", "Info", "Success", "Warning", "Danger"];
   ctrl.themesObj = {
     "None": undefined,

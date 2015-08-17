@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="ctrl.js"></script>
+    <script type="text/javascript" src="services.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheet.css" rel="stylesheet">
+  </head>
+  <body ng-app="myApp" class="black">
+    <div ng-controller="myController as ctrl">
+      <div class="container text-center">
+        <div class="row">
+          <h3 class="font-white">Welcome to Simon</h3>
+        </div>
+        <div class="row">
+          <div><button type="button" class="btn btn-primary" ng-disabled="ctrl.startDisabled" ng-click="ctrl.startGame()">Start New Game</button></div>
+        </div>
+        <div class="row">
+          <div class="game">
+            <div>
+              <span><button type="button" ng-class="ctrl.options.colors[0]" ng-click="ctrl.processUserMove(0)" class="option left btn"></button></span>
+              <span><button type="button" ng-class="ctrl.options.colors[1]" ng-click="ctrl.processUserMove(1)" class="option right btn"></button></span>
+            </div>
+            <div>
+              <span><button type="button" ng-class="ctrl.options.colors[2]" ng-click="ctrl.processUserMove(2)" class="option left btn"></button></span>
+              <span><button type="button" ng-class="ctrl.options.colors[3]" ng-click="ctrl.processUserMove(3)" class="option right btn"></button></span>
+            </div>
+          </div>
+          <div class="font-white message" ng-bind="ctrl.options.message"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

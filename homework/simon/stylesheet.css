@@ -1,0 +1,57 @@
+.container {
+  margin: 30px;
+}
+.message {
+  margin-top: 5px;
+  font-style: italics;
+}
+.left {
+ margin-right: 5px;
+}
+.right {
+ margin-left: 5px;
+}
+.font-white {
+  color: white;
+}
+.black {
+  background-color: black;
+}
+.green {
+  background-color: #008000;
+}
+.red {
+  background-color: #ff0000;
+}
+.blue {
+  background-color: #0000FF;
+}
+.yellow {
+  background-color: #FFFF00;
+}
+.light-green {
+  background-color: #66b266;
+}
+.light-red {
+  background-color: #ff6666;
+}
+.light-blue {
+  background-color: #6666ff;
+}
+.light-yellow {
+  background-color: #ffff7f;
+}
+.game {
+  margin-top: 20px;
+}
+.option {
+  height: 125px;
+  width: 125px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+.optionDisabled {
+  cursor: not-allowed;
+}
+
+

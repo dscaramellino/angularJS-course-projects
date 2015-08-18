@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+      <div class="col-md-8">
+      <div class="well">
+        <h1 ng-bind="ctrl.name" class="text-center"></h1>
+        <center><div class="width">
+          <label class="control-label">Enter a query:</label>
+          <input type="text" ng-model="ctrl.query" ng-keyup="ctrl.findAddresses()" class="form-control query">
+        </div></center>
+        <div class="well" ng-repeat="address in ctrl.addresses">
+          <div><label>Place Id:</label>  <span ng-bind="address.place_id"></span></div>
+          <div><label>Formatted Address:</label>  <span ng-bind="address.formatted_address"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+
+</div>

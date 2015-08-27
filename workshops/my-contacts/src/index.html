@@ -23,7 +23,10 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+    <ul class="nav nav-tabs margin-bottom" ng-controller="NavigationCtrl as navCtrl">
+        <li><a href="#" ui-sref="{{navCtrl.stateVals.addContactState.stateName}}">Add Contacts</a></li>
+        <li><a href="#" ui-sref="{{navCtrl.stateVals.myContactsState.stateName}}">My Contacts</a></li>
+    </ul>
     <div ui-view></div>
 
     <!-- build:js(src) scripts/vendor.js -->

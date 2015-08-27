@@ -1,0 +1,55 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-5">
+    <br>
+      <div class="well well-tall">
+        <h4 class="text-center">Add Contact</h4>
+
+        <form name="addContactCtrl.myForm" ng-submit="addContactCtrl.onSubmit()" novalidate>
+
+          <div class="form-group"><input
+              class="form-control input-md"
+              type="text"
+              ng-model="addContactCtrl.formObj.firstName"
+              placeholder="First Name"
+              required></div>
+
+          <div class="form-group"><input
+              class="form-control input-md"
+              type="text"
+              ng-model="addContactCtrl.formObj.lastName"
+              placeholder="Last Name"></div>
+
+          <div class="form-group"><input
+              class="form-control input-md"
+              type="phone"
+              ng-model="addContactCtrl.formObj.phone"
+              placeholder="Phone Number (845) 222-7353"
+              name="userPhone"
+              ng-pattern="/^\(\d\d\d\) \d\d\d-\d\d\d\d$/"
+              required></div>
+
+          <div class="form-group"><input
+              class="form-control input-md"
+              type="email"
+              ng-model="addContactCtrl.formObj.email"
+              placeholder="Email"
+              name="userEmail"
+              required></div>
+
+          <div class="margin-bottom"><input type="submit" class="btn btn-primary" value="Submit"></div>
+
+          <br>
+
+          <div ng-if="addContactCtrl.formFeedback" class="fader well">
+            <div ng-bind="addContactCtrl.formFeedback"></div>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</div>

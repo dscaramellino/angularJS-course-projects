@@ -19,6 +19,30 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
   padding: 0.2em 0;
 }
 
+.fader {
+  transition: 1s ease-in all;
+}
+
+.fader.ng-leave {
+  opacity: 1;
+}
+
+.fader.ng-leave-active {
+  opacity: 0;
+}
+
+.fader.ng-enter {
+  opacity: 0;
+}
+
+.fader.ng-enter-active {
+  opacity: 1;
+}
+
+.well-tall {
+  min-height: 420px;
+}
+
 .thumbnail {
   height: 200px;
 

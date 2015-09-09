@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-5">
+      <div class="well">
+        <h3>Search for Users</h3>
+
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="well">
+        <h3 class="text-center">School Staff</h3>
+        <div class="margin-bottom" ng-repeat="user in userDirectoryCtrl.state.users">
+          <h5><span ng-bind="user.profile.firstName"></span> <span ng-bind="user.profile.lastName"></span></h5>
+          <h6 ng-bind="user.usersRole.schoolIds"></h6>
+          <h6 ng-bind="user.authenticationEmail"></h6>
+          <h6 ng-bind="user.gafeEmail"></h6>
+        </div>
+      </div>
+      <div class="well">
+        <h3>Support Staff</h3>
+        <div class="margin-bottom" ng-repeat="user in userDirectoryCtrl.state.users">
+          <h5><span ng-bind="user.profile.firstName"></span> <span ng-bind="user.profile.lastName"></span></h5>
+          <h6 ng-bind="user.usersRole.schoolIds"></h6>
+          <h6 ng-bind="user.authenticationEmail"></h6>
+          <h6 ng-bind="user.gafeEmail"></h6>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <pre>{{userDirectoryCtrl.state | json}}</pre>
+
+</div>

@@ -2,36 +2,115 @@
 
   <div class="row">
 
-    <div class="col-md-5">
-      <div class="well">
-        <h3>Search for Users</h3>
-
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h5 class="panel-title text-center">Search for Users</h5>
+        </div>
+        <div class="panel-body">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-5 control-label">by Cluster:</label>
+              <div class="col-sm-7"><select class="form-control"></select></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-5 control-label">by School:</label>
+              <div class="col-sm-7"><select class="form-control"></select></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-5 control-label">by First Name:</label>
+              <div class="col-sm-7"><input type="text" class="form-control" ng-model="userDirectoryCtrl.searchContext.profile.firstName" ng-change="userDirectoryCtrl.evaluateFilter()" placeholder="first name"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-5 control-label">by Last Name:</label>
+              <div class="col-sm-7"><input type="text" class="form-control" ng-model="userDirectoryCtrl.searchContext.profile.lastName" ng-change="userDirectoryCtrl.evaluateFilter()" placeholder="last name"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-5 control-label">by Job Title:</label>
+              <div class="col-sm-7"><input type="text" class="form-control" ng-model="userDirectoryCtrl.searchContext.profile.title" ng-change="userDirectoryCtrl.evaluateFilter()" placeholder="title"></div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="well">
-        <h3 class="text-center">School Staff</h3>
-        <div class="margin-bottom" ng-repeat="user in userDirectoryCtrl.state.users">
-          <h5><span ng-bind="user.profile.firstName"></span> <span ng-bind="user.profile.lastName"></span></h5>
-          <h6 ng-bind="user.usersRole.schoolIds"></h6>
-          <h6 ng-bind="user.authenticationEmail"></h6>
-          <h6 ng-bind="user.gafeEmail"></h6>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="text-center panel-title">School Staff</h4>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="user in userDirectoryCtrl.state.users.staff">
+              <h4><span ng-bind="user.profile.firstName"></span> <span ng-bind="user.profile.lastName"></span></h4>
+              <h6><span ng-bind="user.profile.title"></span>, <span ng-bind="user.usersRole.schoolIds"></span></h6>
+              <h6 ng-bind="user.authenticationEmail"></h6>
+              <h6 ng-bind="user.gafeEmail"></h6>
+            </li>
+          </ul>
         </div>
-      </div>
-      <div class="well">
-        <h3>Support Staff</h3>
-        <div class="margin-bottom" ng-repeat="user in userDirectoryCtrl.state.users">
-          <h5><span ng-bind="user.profile.firstName"></span> <span ng-bind="user.profile.lastName"></span></h5>
-          <h6 ng-bind="user.usersRole.schoolIds"></h6>
-          <h6 ng-bind="user.authenticationEmail"></h6>
-          <h6 ng-bind="user.gafeEmail"></h6>
+    </div>
+
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="text-center panel-title">Support Staff</h4>
         </div>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="user in userDirectoryCtrl.state.users.support">
+            <h4><span ng-bind="user.profile.firstName"></span> <span ng-bind="user.profile.lastName"></span></h4>
+            <h6><span ng-bind="user.profile.title"></span></h6>
+            <h6 ng-bind="user.authenticationEmail"></h6>
+            <h6 ng-bind="user.gafeEmail"></h6>
+          </li>
+        </ul>
       </div>
     </div>
 
   </div>
 
+
+  <pre>{{userDirectoryCtrl.searchContext | json}}</pre>
   <pre>{{userDirectoryCtrl.state | json}}</pre>
 
 </div>
+
+
+<!--   <div class="row">
+
+    <div class="col-md-4">
+      <div class="well">
+        <h3  class="text-center">Search for Users</h3>
+        <input type="text" class="form-control" ng-model="userDirectoryCtrl.searchContext.firstName" placeholder="search by firstName">
+        <input type="text" class="form-control" ng-model="userDirectoryCtrl.searchContext.lastName" placeholder="search by lastName">
+        <input type="text" class="form-control" ng-model="userDirectoryCtrl.searchContext.title" placeholder="search by title">
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="well">
+        <h3 class="text-center">School Staff</h3>
+        <div class="margin-bottom" ng-repeat="user in userDirectoryCtrl.state.users | filter: userDirectoryCtrl.searchContext">
+          <h5><span ng-bind="user.profile.firstName"></span> <span ng-bind="user.profile.lastName"></span></h5>
+          <h6 ng-bind="user.usersRole.schoolIds"></h6>
+          <h6 ng-bind="user.authenticationEmail"></h6>
+          <h6 ng-bind="user.gafeEmail"></h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="well">
+        <h3 class="text-center">Support Staff</h3>
+        <div class="margin-bottom" ng-repeat="user in userDirectoryCtrl.state.users | filter: userDirectoryCtrl.searchContext">
+          <h5><span ng-bind="user.profile.firstName"></span> <span ng-bind="user.profile.lastName"></span></h5>
+          <h6 ng-bind="user.usersRole.schoolIds"></h6>
+          <h6 ng-bind="user.authenticationEmail"></h6>
+          <h6 ng-bind="user.gafeEmail"></h6>
+        </div>
+      </div>
+    </div>
+
+  </div> -->
+
+  <!-- <pre>{{userDirectoryCtrl.searchContext | json}}</pre> -->
+

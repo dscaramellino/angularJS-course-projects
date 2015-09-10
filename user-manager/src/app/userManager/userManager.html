@@ -1,4 +1,39 @@
 <div class="container">
+  <div class="row">
 
-  <h1 ng-bind="userManagerCtrl.name"></h1>
+    <div class="col-md-8">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Job Title</th>
+            <th>Current Status</th>
+            <th>Last Login</th>
+            <th>DOE Email</th>
+            <th>GAFE Email</th>
+            <th>NV Tool Editor</th>
+            <th>NV Tool Viewer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="user in userManagerCtrl.state.users.staff">
+            <td ng-bind="user.profile.firstName"></td>
+            <td ng-bind="user.profile.lastName"></td>
+            <td ng-bind="user.profile.title"></td>
+            <td ng-bind="user.status"></td>
+            <td ng-bind="user.lastLogin"></td>
+            <td ng-bind="user.authenticationEmail"></td>
+            <td ng-bind="user.gafeEmail"></td>
+            <td><input type="radio" ng-checked="user.toolGroups.toolEditor" ng-model="user.toolGroups.toolEditor"></td>
+            <td><input type="radio" ng-checked="user.toolGroups.toolViewer" ng-model="user.toolGroups.toolViewer"></td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <pre>{{userManagerCtrl.state | json}}</pre>
+
 </div>

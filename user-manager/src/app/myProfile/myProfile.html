@@ -2,46 +2,50 @@
 
   <div class="row">
 
-    <div class="col-md-6">
-      <div class="well">
-        <h3 class="text-center">
-          <span ng-bind="myProfileCtrl.state.user.profile.firstName"></span>
-          <span ng-bind="myProfileCtrl.state.user.profile.lastName"></span>
-        </h3>
-        <dl class="dl-horizontal">
-          <dt>First Name: </dt>
-          <dd>
+    <div class="col-md-5">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h5 class="panel-title text-center">
             <span ng-bind="myProfileCtrl.state.user.profile.firstName"></span>
-            <span class="glyphicon glyphicon-pencil margin-left"></span>
-          </dd>
-          <dt>Last Name: </dt>
-          <dd>
             <span ng-bind="myProfileCtrl.state.user.profile.lastName"></span>
-            <span class="glyphicon glyphicon-pencil margin-left"></span>
-          </dd>
-          <dt>Job Title: </dt>
-          <dd>
-            <span ng-bind="myProfileCtrl.state.user.profile.title"></span>
-            <span class="glyphicon glyphicon-pencil margin-left"></span>
-          </dd>
-          <dt>Status: </dt>
-          <dd><span ng-bind="myProfileCtrl.state.user.status"></span></dd>
-          <dt>Last Login: </dt>
-          <dd><span ng-bind="myProfileCtrl.state.user.lastLogin"></span></dd>
-          <dt>Authentication Email: </dt>
-          <dd><span ng-bind="myProfileCtrl.state.user.authenticationEmail"></span></dd>
-          <dt>Google Apps Email: </dt>
-          <dd>
-            <span ng-bind="myProfileCtrl.state.user.gafeEmail"></span>
-            <span class="glyphicon glyphicon-pencil margin-left"></span>
-          </dd>
-          <dt>Tool Groups: </dt>
-          <dd>
-            <span ng-repeat="toolGroup in myProfileCtrl.state.user.toolGroups">
-              <span ng-bind="toolGroup"></span>
-            </span>
-          </dd>
-        </dl>
+          </h5>
+        </div>
+        <div class="panel-body">
+          <dl class="dl-horizontal">
+            <dt>First Name: </dt>
+            <dd>
+              <span ng-bind="myProfileCtrl.state.user.profile.firstName"></span>
+              <span class="glyphicon glyphicon-pencil margin-left"></span>
+            </dd>
+            <dt>Last Name: </dt>
+            <dd>
+              <span ng-bind="myProfileCtrl.state.user.profile.lastName"></span>
+              <span class="glyphicon glyphicon-pencil margin-left"></span>
+            </dd>
+            <dt>Job Title: </dt>
+            <dd>
+              <span ng-bind="myProfileCtrl.state.user.profile.title"></span>
+              <span class="glyphicon glyphicon-pencil margin-left"></span>
+            </dd>
+            <dt>Status: </dt>
+            <dd><span ng-bind="myProfileCtrl.state.user.status"></span></dd>
+            <dt>Last Login: </dt>
+            <dd><span ng-bind="myProfileCtrl.state.user.lastLogin"></span></dd>
+            <dt>Authentication Email: </dt>
+            <dd><span ng-bind="myProfileCtrl.state.user.authenticationEmail"></span></dd>
+            <dt>Google Apps Email: </dt>
+            <dd>
+              <span ng-bind="myProfileCtrl.state.user.gafeEmail"></span>
+              <span class="glyphicon glyphicon-pencil margin-left"></span>
+            </dd>
+            <dt>Tool Groups: </dt>
+            <dd>
+              <div ng-repeat="toolGroup in myProfileCtrl.state.user.toolGroups.toolGroups">
+                <span ng-bind="toolGroup"></span>
+              </div>
+            </dd>
+          </dl>
+        </div>
       </div>
     </div>
 
@@ -52,8 +56,8 @@
 
               <div class = "row">
                 <div class="col-md-8">
-                  <h3 ng-bind="myProfileCtrl.state.school.name">School Info</h3>
-                  <h4 ng-bind="myProfileCtrl.state.school.type"></h>
+                  <h4 ng-bind="myProfileCtrl.state.school.name">School Info</h4>
+                  <h5 ng-bind="myProfileCtrl.state.school.type"></h5>
                   <h5 ng-bind="myProfileCtrl.state.school.address"></h5>
 
                 </div>
@@ -69,7 +73,7 @@
       <div class = "row">
         <div class="col-md-12">
           <div class="well">
-            <h3 class="text-center">Alerts</h3>
+            <h4>Alerts</h4>
           </div>
         </div>
       </div>

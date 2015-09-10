@@ -3,10 +3,9 @@
 
   angular.module('template')
 
-  .controller('UserManagerController', function () {
+  .controller('UserManagerController', function (APIServices) {
     var self = this;
-
-    self.name = "UserManager"
+    self.state = APIServices.state;
   });
 
 })();

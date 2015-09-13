@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('template')
+    .module('user-manager')
     .config(function ($stateProvider, $urlRouterProvider) {
 
       $urlRouterProvider.when('/', '/myProfile');
@@ -10,19 +10,19 @@
       $stateProvider
         .state('myProfile', {
           url: '/myProfile',
-          templateUrl: 'app/myProfile/myProfile.html',
+          templateUrl: 'app/components/myProfile/myProfile.html',
           controller: 'MyProfileController',
           controllerAs: 'myProfileCtrl'
         })
         .state('userDirectory', {
           url: '/userDirectory',
-          templateUrl: 'app/userDirectory/userDirectory.html',
+          templateUrl: 'app/components/userDirectory/userDirectory.html',
           controller: 'UserDirectoryController',
           controllerAs: 'userDirectoryCtrl'
         })
         .state('userManager', {
           url: '/userManager',
-          templateUrl: 'app/userManager/userManager.html',
+          templateUrl: 'app/components/userManager/userManager.html',
           controller: 'UserManagerController',
           controllerAs: 'userManagerCtrl'
         });

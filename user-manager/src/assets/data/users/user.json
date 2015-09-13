@@ -5,8 +5,35 @@
   "profile": {
     "firstName": "Danielle",
     "lastName": "Scaramellino",
-    "title": "Assistant Principal"
+    "title": "Assistant Principal",
+    "department": "Math"
   },
+  "tasks": [
+    {
+      "priority": "high",
+      "msg": "Modify student programs in STARS based on add/drop columns in Credit Gaps Tool.",
+      "source": "Credit Gaps Tool",
+      "author": "dscaramellino@newvisions.org",
+      "created": "20150219",
+      "status": "Open"
+    },
+    {
+      "priority": "low",
+      "msg": "Prep agenda for grade team meeting.",
+      "source": null,
+      "author": "dscaramellino@newvisions.org",
+      "created": "20150519",
+      "status": "Open"
+    },
+    {
+      "priority": "medium",
+      "msg": "Follow up with Jenny re Yoga club field trip.",
+      "source": null,
+      "author": "dscaramellino@newvisions.org",
+      "created": "20151919",
+      "status": "Archived"
+    }
+  ],
   "sourceFlags": [
     "DOE_HR"
   ],

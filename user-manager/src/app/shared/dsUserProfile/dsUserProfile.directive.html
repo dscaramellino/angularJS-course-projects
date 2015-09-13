@@ -1,0 +1,67 @@
+<div class="well profile">
+
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="thumbnail profile text-center">
+        <img ng-src="{{dsUserProfileCtrl.state.user.gravatarImgUrl}}">
+        <div class="caption">
+          <h6 class="help-block">
+            <label>Last Login:</label>
+            <div ng-bind="dsUserProfileCtrl.state.user.lastLogin"></div>
+          </h6>
+        </div>
+
+        <span class="label label-default profile" ng-if="dsUserProfileCtrl.state.user.toolGroups.toolEditor">
+          <span class="glyphicon glyphicon-ok"></span>
+          Tool Editor
+        </span>
+        <span class="label label-default profile" ng-if="dsUserProfileCtrl.state.user.toolGroups.toolViewer">
+          <span class="glyphicon glyphicon-ok"></span>
+          Tool Viewer
+        </span>
+
+      </div>
+    </div>
+
+    <div class="col-md-7">
+      <h2 class="profile" ng-bind="dsUserProfileCtrl.state.user.profile.fullName"></h2>
+      <div>
+        <span class="lead" ng-bind="dsUserProfileCtrl.state.school.name"></span>
+        <span class="profile help-block" ng-bind="dsUserProfileCtrl.state.school.address"></span>
+      </div>
+      <div>
+        <label>Job Title: </label>
+        <span ng-bind="dsUserProfileCtrl.state.user.profile.title"></span>
+      </div>
+      <div>
+        <label>Department: </label>
+        <span ng-bind="dsUserProfileCtrl.state.user.profile.department"></span>
+      </div>
+      <div>
+        <label>GAFE Email: </label>
+        <span ng-bind="dsUserProfileCtrl.state.user.gafeEmail | lowercase"></span>
+      </div>
+      <div>
+        <label>Other Email: </label>
+        <span ng-bind="dsUserProfileCtrl.state.user.authenticationEmail | lowercase"></span>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="thumbnail school" ng-if="dsUserProfileCtrl.state.school.iconUrl">
+        <img ng-src="{{dsUserProfileCtrl.state.school.iconUrl}}"/>
+        <div class="caption">
+          <h6 class="help-block" ng-bind="dsUserProfileCtrl.state.school.schoolId"></h6>
+        </div>
+      </div>
+      <p class="text-center">
+        <button type="button" class="btn btn-primary profile" ng-click="dsUserProfileCtrl.openProfileEditor(dsUserProfileCtrl.state.user)"><span class="glyphicon glyphicon-pencil"></span> Edit
+        </button>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<pre>{{dsUserProfileCtrl | json}}</pre>

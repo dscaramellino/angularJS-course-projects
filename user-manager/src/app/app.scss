@@ -23,27 +23,45 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
   height: 100px;
   width: 100px;
   margin-bottom: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.label.profile {
+  font-size: 80% !important;
+  line-height: 2 !important;
+}
+
+.btn.profile {
+  margin-top: 40px;
+}
+
+.well.profile {
+  min-height: 320px;
+}
+
+.thumbnail.profile {
+  height: 125px;
+  width: 125px;
+}
+
+.thumbnail.school {
+  height: 75px;
+  width: 75px;
+}
+
+h2.profile {
+  margin-top: 0px;
+}
+
+.tasks {
+  width: 90%;
 }
 
 .container {
   margin-top: 20px;
 }
 
-dt, dd {
-  line-height: 2;
-}
-
-h3 {
-  margin-bottom: 20px;
-}
-
-.margin-left {
-  margin-left: 5px;
-}
-
-.margin-bottom {
-  margin-bottom: 30px;
-}
 
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject

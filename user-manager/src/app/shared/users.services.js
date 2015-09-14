@@ -11,12 +11,14 @@
 
     Users.buildUsersWithData = function(data) {
       var config = {
+        all: [],
         staff: [],
         support: []
       }
       data.map(function(user) {
         user = new User(user);
-        if (user.usersRole.type === 'cluster' || user.usersRole.type === 'super_admin') {
+        config.all.push(user);
+        if (user.supportUser) {
           config.support.push(user);
         } else {
           config.staff.push(user);

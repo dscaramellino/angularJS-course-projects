@@ -3,35 +3,46 @@
 
   angular.module('user-manager')
 
-  .factory('School', function(SchoolResource) {
+  .service('SchoolsService', function(SchoolsResource) {
+    var self = this;
+    self.schools = [];
 
-    var School = function(school) {
-      angular.extend(this, school);
-    }
-
-    School.getSchoolByIdAsync = function(id, callback) {
-      SchoolResource.getSchoolById({id: id}).$promise
+    self.getSchools = function() {
+      SchoolsResource.getSchools().$promise
       .then(function (response) {
-        callback(new School(response));
+        self.schools = response;
       }).catch(function (errorResponse) {
         console.log(errorResponse);
       });
-    }
+    };
 
-    return School;
+    self.getSchoolForUser = function(usersRole, schoolUser) {
+      var school;
+      if (schoolUser) {
+        var userSchoolId = usersRole.schoolIds[0];
+        for (var i=0; i<self.schools.length; i++) {
+          if (self.schools[i].schoolId === userSchoolId) {
+            if (self.schools[i].iconUrl === null) {
+              self.schools[i].iconUrl = "/assets/img/school_icon.png"
+            }
+            school = self.schools[i];
+          }
+        }
+      }
+      return school;
+    };
+
+    self.getSchools();
 
   })
 
-  .factory('SchoolResource', function($resource) {
+  .factory('SchoolsResource', function($resource) {
 
-    return $resource('/assets/data/schools/:id',
+    return $resource('/assets/data/schools/schools.json', null,
       {
-        id: '@id'
-      },
-      {
-        getSchoolById: {
+        getSchools: {
           method: 'GET',
-          isArray: false
+          isArray: true
         }
       }
     );

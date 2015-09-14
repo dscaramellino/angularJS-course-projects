@@ -6,9 +6,9 @@
   .directive('dsUserProfile', function() {
     return {
       restrict: 'E',
-      templateUrl: 'app/shared/dsUserProfile/dsUserProfile.directive.html',
+      templateUrl: 'app/shared/dsUserProfile/dsUserProfile.html',
       scope: {
-        state: '=state'
+        user: '=user'
       },
       controller: 'dsUserProfileController',
       controllerAs: 'dsUserProfileCtrl',
@@ -16,14 +16,13 @@
     };
   })
 
-  .controller('dsUserProfileController', function($scope, $modal, $log) {
+  .controller('dsUserProfileController', function($scope, $modal) {
     var self = this;
 
     self.openProfileEditor = function(user){
-      console.log(user)
       var modalInstance = $modal.open({
         animation: true,
-        templateUrl: 'app/shared/dsUserProfile/editProfile.html',
+        templateUrl: 'app/shared/dsUserProfile/editProfileInstance.html',
         controller: 'editProfileInstanceController',
         controllerAs: 'editProfileCtrl',
         bindToController: true,

@@ -1,0 +1,57 @@
+<div class="modal-header">
+    <h3 class="modal-title">Edit Profile</h3>
+</div>
+
+<div class="modal-body">
+  <form name="editProfileCtrl.editProfileForm" ng-submit="editProfileCtrl.save()" class="form-horizontal" novalidate>
+    <div class="form-group">
+      <label class="col-md-3 control-label">EID:</label>
+      <div class="col-md-5"><input type="text" class="form-control" ng-model="editProfileCtrl.user.eid" disabled></div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">File Number:</label>
+      <div class="col-md-5"><input type="text" class="form-control" ng-model="editProfileCtrl.user.fileNumber" disabled></div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Email:</label>
+      <div class="col-md-5"><input type="text" class="form-control" ng-model="editProfileCtrl.user.authenticationEmail | lowercase" disabled></div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">School:</label>
+      <div class="col-md-7">
+        <select ng-options="school.schoolId as school.name for school in editProfileCtrl.schools" class="form-control" ng-model="editProfileCtrl.user.school.schoolId" disabled></select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">First Name:</label>
+      <div class="col-md-7"><input type="text" class="form-control" ng-model="editProfileCtrl.user.profile.firstName" placeholder="First Name" required></div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Last Name:</label>
+      <div class="col-md-7"><input type="text" class="form-control" ng-model="editProfileCtrl.user.profile.lastName" placeholder="Last Name" required></div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Job Title:</label>
+      <div class="col-md-7"><input type="text" class="form-control" ng-model="editProfileCtrl.user.profile.title" placeholder="Job Title"></div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Department:</label>
+      <div class="col-md-7"><input type="text" class="form-control" ng-model="editProfileCtrl.user.profile.department" placeholder="Department"></div>
+    </div>
+    <div ng-show="editProfileCtrl.user.hasGafe" class="form-group">
+      <label class="col-md-3 control-label">GAFE Email:</label>
+      <div class="col-md-5"><input type="text" class="form-control" ng-model="editProfileCtrl.user.gafeEmail" disabled></div>
+      <div class="col-md-2 padding-left-0"><button type="button" class="btn btn-danger gafe-link-btn"><span class="glyphicon glyphicon-link larger-glyphicon"></span>  Unlink</button></div>
+    </div>
+    <div ng-hide="editProfileCtrl.user.hasGafe" class="form-group">
+      <label class="col-md-3 control-label">GAFE Email:</label>
+      <div class="col-md-7"><button type="button" class="btn btn-danger gafe-link-btn"><span class="glyphicon glyphicon-link larger-glyphicon"></span>  Link your Google Apps for Education Email</button></div>
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-warning" ng-click="editProfileCtrl.close()">Close</button>
+  <input type="submit" class="btn btn-primary" value="Save">
+</div>
+

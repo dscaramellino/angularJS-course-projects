@@ -3,7 +3,7 @@
 
   angular.module('user-manager')
 
-  .factory('User', function(UserResource, UtilitiesService) {
+  .factory('User', function(UserResource, SchoolsService, UtilitiesService, md5) {
 
     var User = function(user) {
       angular.extend(this, user);
@@ -12,6 +12,27 @@
       this.lastLogin = UtilitiesService.createReadableDate(this.lastLogin);
       this.toolGroups = User.processToolGroups(this.toolGroups);
       this.tasks = User.processTasks(this.tasks);
+      this.gravatarImgUrl = User.createGravatarImgUrl(this.gafeEmail);
+      this.supportUser = User.processUserType(this.usersRole.type, 'support');
+      this.schoolUser = User.processUserType(this.usersRole.type, 'school');
+      this.school = SchoolsService.getSchoolForUser(this.usersRole, this.schoolUser);
+      this.hasGafe = this.gafeEmail;
+    }
+
+    User.processUserType = function(userRoleType, check) {
+      if (check === 'support') {
+        if (userRoleType === 'cluster' || userRoleType === 'super_admin') {
+          return 1;
+        } else {
+          return 0;
+        }
+      } else if (check === 'school') {
+        if (userRoleType !== 'cluster' && userRoleType !== 'super_admin') {
+          return 1;
+        } else {
+          return 0;
+        }
+      }
     }
 
     User.getUserByIdAsync = function(id, callback) {
@@ -22,6 +43,14 @@
       .catch(function (errorResponse) {
         console.log(errorResponse);
       });
+    }
+
+    User.createGravatarImgUrl = function(email) {
+      if (!email) {
+        email = 'default'
+      }
+      var gravatarHash = md5.createHash(email);
+      return "http://www.gravatar.com/avatar/" + gravatarHash + "?d=monsterid&s=200.jpg";
     }
 
     User.processToolGroups = function(toolGroups) {

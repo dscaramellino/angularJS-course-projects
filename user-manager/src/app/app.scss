@@ -37,7 +37,8 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
 }
 
 .well.profile {
-  min-height: 320px;
+  min-height: 300px;
+  margin-bottom: 0px;
 }
 
 .thumbnail.profile {
@@ -56,6 +57,36 @@ h2.profile {
 
 .tasks {
   width: 90%;
+  margin-left: 10px;
+}
+
+.larger-glyphicon {
+  font-size: 125%;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.bg-well {
+  background-color: #f5f5f5;
+}
+
+.help-block.profile {
+  margin-bottom: 0px;
+}
+
+.text-small {
+  font-size: 11px;
+}
+
+.padding-left-0 {
+  padding-left: 0px !important;
+}
+
+.gafe-link-btn {
+  height: 34px !important;
+  padding-top: 4px !important;
 }
 
 .container {

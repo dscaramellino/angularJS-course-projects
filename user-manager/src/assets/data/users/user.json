@@ -39,7 +39,7 @@
   ],
   "status": "PROVISIONED",
   "authenticationEmail": "TEST@newvisions.org",
-  "gafeEmail": "dscaramellino@newvisions.org",
+  "gafeEmail": null,
   "lastLogin": 20150619,
   "loginHistory": [
     20150619,

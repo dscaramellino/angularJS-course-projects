@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title text-center" ng-bind="dsDirectoryListGroupCtrl.title"></h4>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="user in dsDirectoryListGroupCtrl.users">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <img ng-src="{{user.gravatarImgUrl}}">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h4 ng-bind="user.profile.fullName"></h4>
+          <h6 ng-show="user.schoolUser">
+            <span ng-bind="user.school.name"></span> -
+            <span ng-bind="user.school.schoolId"></span>
+          </h6>
+          <h6 ng-show="user.profile.department" class="help-block">
+            <span ng-bind="user.profile.title"></span>,
+            <span ng-bind="user.profile.department"></span>
+          </h6>
+          <h6 ng-hide="user.profile.department" class="help-block">
+            <span ng-bind="user.profile.title"></span>
+          </h6>
+
+        </div>
+        <div class="col-md-2">
+          <div class="margin-top-20">
+            <div><a href="#" ng-click="dsDirectoryListGroupCtrl.openProfileModal(user)">
+              <span class="glyphicon glyphicon-eye-open larger-glyphicon"></span>
+            </a></div>
+            <div><a href="#">
+              <span class="glyphicon glyphicon-envelope larger-glyphicon"></span>
+            </a></div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

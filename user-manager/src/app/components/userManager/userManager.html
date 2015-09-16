@@ -7,26 +7,24 @@
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Job Title</th>
             <th>Current Status</th>
             <th>Last Login</th>
             <th>DOE Email</th>
+            <th>Job Title</th>
             <th>GAFE Email</th>
             <th>NV Tool Editor</th>
-            <th>NV Tool Viewer</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="user in userManagerCtrl.users.all">
+          <tr ng-repeat="user in userManagerCtrl.users.staff">
             <td ng-bind="user.profile.firstName"></td>
             <td ng-bind="user.profile.lastName"></td>
-            <td ng-bind="user.profile.title"></td>
             <td ng-bind="user.status"></td>
             <td ng-bind="user.lastLogin"></td>
             <td ng-bind="user.authenticationEmail"></td>
-            <td ng-bind="user.gafeEmail"></td>
+            <td ng-bind="user.profile.title"></td>
+            <td><select ng-options="account.name for account in editProfileCtrl.accounts" class="input-sm form-control" ng-model="user.gafeEmail"></select></td>
             <td><input type="radio" ng-checked="user.toolGroups.toolEditor" ng-model="user.toolGroups.toolEditor"></td>
-            <td><input type="radio" ng-checked="user.toolGroups.toolViewer" ng-model="user.toolGroups.toolViewer"></td>
           </tr>
         </tbody>
 

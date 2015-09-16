@@ -7,8 +7,10 @@
     var self = this;
 
     self.createReadableDate = function(date) {
-      var filterFunction = $filter('date');
-      return filterFunction(new Date(date), 'short')
+      if (date) {
+        var filterFunction = $filter('date');
+        return filterFunction(new Date(date), 'MMM d, y h:mm a');
+      }
     }
 
     self.toTitleCase = function(string) {

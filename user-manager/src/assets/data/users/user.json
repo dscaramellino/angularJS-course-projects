@@ -10,28 +10,57 @@
   },
   "tasks": [
     {
+      "_id": 12345,
       "priority": "high",
       "msg": "Modify student programs in STARS based on add/drop columns in Credit Gaps Tool.",
       "source": "Credit Gaps Tool",
-      "author": "dscaramellino@newvisions.org",
-      "created": "20150219",
+      "author": "DOE-9999",
+      "actor": "DOE-9999",
+      "createdOn": 20150219,
       "status": "Open"
     },
     {
+      "_id": 12346,
       "priority": "low",
       "msg": "Prep agenda for grade team meeting.",
       "source": null,
-      "author": "dscaramellino@newvisions.org",
-      "created": "20150519",
-      "status": "Open"
+      "author": "DOE-9999",
+      "actor": "DOE-222",
+      "createdOn": 20150519,
+      "status": "Archived",
+      "archivedOn": 12345679
     },
     {
+      "_id": 12347,
       "priority": "medium",
       "msg": "Follow up with Jenny re Yoga club field trip.",
       "source": null,
-      "author": "dscaramellino@newvisions.org",
-      "created": "20151919",
-      "status": "Archived"
+      "author": "DOE-222",
+      "actor": "DOE-9999",
+      "createdOn": 20151919,
+      "status": "Open"
+    },
+    {
+      "_id": 12348,
+      "priority": "medium",
+      "msg": "Create form to update parent contacts.",
+      "source": null,
+      "author": "DOE-222",
+      "actor": "DOE-9999",
+      "createdOn": 20151919,
+      "status": "Archived",
+      "archivedOn": 12345679
+    },
+    {
+      "_id": 12349,
+      "priority": "medium",
+      "msg": "Caseload attendance outreach.",
+      "source": null,
+      "author": "DOE-222",
+      "actor": "DOE-9999",
+      "createdOn": 12345789,
+      "status": "Archived",
+      "archivedOn": 12345679
     }
   ],
   "sourceFlags": [
@@ -39,7 +68,7 @@
   ],
   "status": "PROVISIONED",
   "authenticationEmail": "TEST@newvisions.org",
-  "gafeEmail": null,
+  "gafeEmail": "dscaramellino@newvisions.org",
   "lastLogin": 20150619,
   "loginHistory": [
     20150619,

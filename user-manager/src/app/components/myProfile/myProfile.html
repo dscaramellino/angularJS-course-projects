@@ -2,13 +2,13 @@
   <div class="row">
 
     <div class="col-md-7">
-      <div class="well profile">
-        <ds-user-profile user="myProfileCtrl.user"></ds-user-profile>
+      <div class="well profile-container">
+        <ds-user-profile user="myProfileCtrl.state.loggedInUser"></ds-user-profile>
       </div>
     </div>
 
     <div class="col-md-5">
-      <ds-tasks-manager tasks="myProfileCtrl.user.tasks"></ds-tasks-manager>
+      <ds-tasks-manager tasks="myProfileCtrl.state.loggedInUser.tasks"></ds-tasks-manager>
     </div>
 
   </div>

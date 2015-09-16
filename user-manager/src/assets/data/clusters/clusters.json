@@ -1,0 +1,6 @@
+[
+  {"clusterId": "AAAAA", "name":"Affinity Schools", "schoolsIds": []},
+  {"clusterId": "BBBBB", "name":"Community Schools", "schoolsIds": []},
+  {"clusterId": "CCCCC", "name":"Renewal Schools", "schoolIds": []},
+  {"clusterId": "DDDDD", "name":"New Visions for Public Schools", "schoolIds": []}
+]

@@ -1,0 +1,14 @@
+<div class="tasks">
+  <br>
+  <alert ng-repeat="task in dsTaskAssignedByYouToAnotherCtrl.tasks" type="{{task.priorityClass}}">
+    <span ng-bind="task.msg"></span>
+    <span class="pull-right glyphicon glyphicon-trash"></span>
+    <b>
+      <span class="task help-block text-small">
+        Assigned to <span ng-bind="task.author"></span> on <span ng-bind="task.createdOn"></span>
+        <br>Current Status: <span ng-bind="task.status"></span>
+        <span ng-show="task.archivedOn"> by user on <span ng-bind="task.archivedOn"></span></span>
+      </span>
+    </b>
+  </alert>
+</div>

@@ -1,0 +1,9 @@
+<div class="tasks">
+  <br>
+  <alert ng-repeat="task in dsTaskAssignedToYouArchivedCtrl.tasks" type="{{task.priorityClass}}">
+    <span ng-bind="task.msg"></span>
+    <span class="padding-left-5 pull-right glyphicon glyphicon-trash"></span>
+    <span class="pull-right glyphicon glyphicon glyphicon-refresh"></span>
+    <b><br>Archived on <span ng-bind="task.archivedOn"></span></b>
+  </alert>
+</div>

@@ -3,16 +3,22 @@
 
   angular.module('user-manager')
 
-  .controller('UserDirectoryController', function (Users, $filter) {
+  .controller('UserDirectoryController', function (Users, SchoolsService, ClustersService, $filter) {
     var self = this;
     self.users = {};
-    self.isLoadingContent = true;
     var allList;
     var staffList;
     var supportList;
 
+    SchoolsService.listSchoolsAsync(function(schools) {
+      self.allSchools = schools;
+    });
+
+    ClustersService.listClustersAsync(function(clusters) {
+      self.allClusters = clusters;
+    });
+
     Users.listUsersAsync(function(users) {
-      self.isLoadingContent = false;
       self.users.all = users.all;
       self.users.staff = users.staff;
       self.users.support = users.support;
@@ -22,6 +28,12 @@
     });
 
     self.evaluateFilter = function() {
+      if (self.searchContext.usersRole.clusterIds === null) {
+        delete self.searchContext.usersRole.clusterIds;
+      }
+      if (self.searchContext.usersRole.schoolIds === null) {
+        delete self.searchContext.usersRole.schoolIds;
+      }
       var filterFunction = $filter('filter');
       self.users.all = filterFunction(allList, self.searchContext);
       self.users.staff = filterFunction(staffList, self.searchContext);

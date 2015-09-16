@@ -10,11 +10,15 @@
         <div class="panel-body">
           <div class="form-group">
             <label class="control-label">Cluster:</label>
-            <select class="form-control"></select>
+            <select class="form-control" ng-options="cluster.clusterId as cluster.name for cluster in userDirectoryCtrl.allClusters" ng-model="userDirectoryCtrl.searchContext.usersRole.clusterIds" ng-change="userDirectoryCtrl.evaluateFilter()">
+              <option value="">--- all clusters ---</option>
+            </select>
           </div>
           <div class="form-group">
             <label class="control-label">School:</label>
-            <select class="form-control"></select>
+            <select class="form-control" ng-options="school.schoolId as school.name for school in userDirectoryCtrl.allSchools" ng-model="userDirectoryCtrl.searchContext.usersRole.schoolIds" ng-change="userDirectoryCtrl.evaluateFilter()">
+              <option value="">--- all schools ---</option>
+            </select>
           </div>
           <div class="form-group">
             <label class="control-label">First Name:</label>
@@ -26,7 +30,11 @@
           </div>
           <div class="form-group">
             <label class="control-label">Job Title:</label>
-            <input type="text" class="form-control" ng-model="userDirectoryCtrl.searchContext.profile.title" ng-change="userDirectoryCtrl.evaluateFilter()" placeholder="title">
+            <input type="text" class="form-control" ng-model="userDirectoryCtrl.searchContext.profile.title" ng-change="userDirectoryCtrl.evaluateFilter()" placeholder="job title">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Department:</label>
+            <input type="text" class="form-control" ng-model="userDirectoryCtrl.searchContext.profile.department" ng-change="userDirectoryCtrl.evaluateFilter()" placeholder="department">
           </div>
         </div>
       </div>
@@ -44,6 +52,11 @@
 
 </div>
 
+
+<pre>{{userDirectoryCtrl.searchContext | json}}</pre>
+<pre>{{userDirectoryCtrl.users | json}}</pre>
+<pre>{{userDirectoryCtrl.schools | json}}</pre>
+<pre>{{userDirectoryCtrl.clusters | json}}</pre>
 
 <!--   <div class="row">
 

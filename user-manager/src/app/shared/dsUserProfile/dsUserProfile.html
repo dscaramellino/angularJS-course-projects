@@ -24,11 +24,9 @@
 
   <div class="col-md-7">
     <h2 class="profile" ng-bind="dsUserProfileCtrl.user.profile.fullName"></h2>
-    <div>
-      <span class="lead" ng-bind="dsUserProfileCtrl.user.school.name"></span>
-      <span class="profile help-block" ng-bind="dsUserProfileCtrl.user.school.address"></span>
-    </div>
-    <div class="help-block text-small profile">
+    <span class="lead" ng-bind="dsUserProfileCtrl.user.school.name"></span>
+    <span class="help-block" ng-bind="dsUserProfileCtrl.user.school.address"></span>
+    <div ng-show="dsUserProfileCtrl.user.isMyProfile" class="text-small">
       <label>EID: </label>
       <span ng-bind="dsUserProfileCtrl.user.eid"></span>
       <label>File Number: </label>
@@ -59,7 +57,7 @@
         <h6 class="help-block" ng-bind="dsUserProfileCtrl.user.school.schoolId"></h6>
       </div>
     </div>
-    <p ng-show="dsUserProfileCtrl.user.myProfile" class="text-center">
+    <p ng-show="dsUserProfileCtrl.user.isMyProfile" class="text-center">
       <button type="button" class="btn btn-primary profile" ng-click="dsUserProfileCtrl.openProfileEditor(dsUserProfileCtrl.user)"><span class="glyphicon glyphicon-pencil"></span> Edit
       </button>
     </p>

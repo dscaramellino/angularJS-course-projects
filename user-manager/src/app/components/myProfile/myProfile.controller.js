@@ -3,19 +3,13 @@
 
   angular.module('user-manager')
 
-  .controller('MyProfileController', function (User) {
-
-    // Replace these variables once auth framework is added
-    var USERID = 'user.json';
-
+  .controller('MyProfileController', function (LoggedInUserService) {
     var self = this;
-    self.isLoading = true;
+    self.state = LoggedInUserService.state;
 
-    User.getUserByIdAsync(USERID, function(user) {
-      user.myProfile = true;
-      self.user = user;
-      self.isLoading = false;
-    });
+    var isLoading = self.state.isLoading;
+
+    LoggedInUserService.loadLoggedInUserProfile(true);
 
   });
 

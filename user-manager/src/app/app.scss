@@ -36,8 +36,8 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
   margin-top: 40px;
 }
 
-.well.profile {
-  min-height: 300px;
+.profile-container {
+  min-height: 275px;
   margin-bottom: 0px;
 }
 
@@ -56,7 +56,7 @@ h2.profile {
 }
 
 .tasks {
-  width: 90%;
+  width: 80%;
   margin-left: 10px;
 }
 
@@ -68,12 +68,13 @@ h2.profile {
   margin-top: 20px;
 }
 
-.bg-well {
-  background-color: #f5f5f5;
+.task.help-block {
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
 }
 
-.help-block.profile {
-  margin-bottom: 0px;
+.bg-well {
+  background-color: #f5f5f5;
 }
 
 .text-small {
@@ -93,6 +94,35 @@ h2.profile {
   margin-top: 20px;
 }
 
+th {
+  text-align: center;
+}
+
+th, td {
+  min-width: 115px;
+  font-size: 12px;
+}
+
+th:last-child, td:last-child {
+  min-width: 75px;
+  text-align: center;
+}
+
+th:nth-child(1), td:nth-child(1), th:nth-child(2), td:nth-child(2) {
+  min-width: 75px;
+}
+
+td:nth-child(3), td:nth-child(4) {
+  text-align: center;
+}
+
+th:nth-child(7), td:nth-child(7) {
+  min-width: 200px;
+}
+
+.padding-left-5 {
+  padding-left: 5px;
+}
 
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject

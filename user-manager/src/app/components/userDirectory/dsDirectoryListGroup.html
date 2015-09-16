@@ -30,7 +30,7 @@
             <div><a href="#" ng-click="dsDirectoryListGroupCtrl.openProfileModal(user)">
               <span class="glyphicon glyphicon-eye-open larger-glyphicon"></span>
             </a></div>
-            <div><a href="#">
+            <div ng-show="user.gafeEmail"><a ng-href="https://mail.google.com/mail/?view=cm&fs=1&to={{user.gafeEmail}}" target="_blank">
               <span class="glyphicon glyphicon-envelope larger-glyphicon"></span>
             </a></div>
           </div>

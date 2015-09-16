@@ -5,12 +5,13 @@
 
   .service('SchoolsService', function(SchoolsResource) {
     var self = this;
-    self.schools = [];
+    self.schools;
 
-    self.getSchools = function() {
+    self.listSchoolsAsync = function(callback) {
       SchoolsResource.getSchools().$promise
       .then(function (response) {
-        self.schools = response;
+        self.allSchools = response;
+        if (callback) callback(response);
       }).catch(function (errorResponse) {
         console.log(errorResponse);
       });
@@ -20,19 +21,22 @@
       var school;
       if (schoolUser) {
         var userSchoolId = usersRole.schoolIds[0];
-        for (var i=0; i<self.schools.length; i++) {
-          if (self.schools[i].schoolId === userSchoolId) {
-            if (self.schools[i].iconUrl === null) {
-              self.schools[i].iconUrl = "/assets/img/school_icon.png"
+        for (var i=0; i<self.allSchools.length; i++) {
+          var thisSchool = self.allSchools[i];
+          var thisSchoolId = thisSchool.schoolId;
+          var thisSchoolIconUrl = thisSchool.iconUrl;
+          if (thisSchoolId === userSchoolId) {
+            if (thisSchoolIconUrl === null) {
+              thisSchoolIconUrl = "/assets/img/school_icon.png"
             }
-            school = self.schools[i];
+            school = thisSchool;
           }
         }
       }
       return school;
     };
 
-    self.getSchools();
+    self.listSchoolsAsync();
 
   })
 

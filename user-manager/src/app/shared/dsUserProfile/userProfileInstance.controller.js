@@ -3,14 +3,18 @@
 
   angular.module('user-manager')
 
-  .controller('userProfileInstanceController', function($modalInstance, user) {
+  .controller('userProfileInstanceController', function($modalInstance, user, LoggedInUserService) {
     var self = this;
+    user.isMyProfile = false;
     self.user = angular.copy(user);
-    user.myProfile = false;
 
     self.close = function () {
       $modalInstance.dismiss('close');
     };
+
+    self.save = function () {
+    };
+
 
   })
 

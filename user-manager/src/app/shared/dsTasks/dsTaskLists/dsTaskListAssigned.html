@@ -1,8 +1,8 @@
 <div class="tasks">
   <br>
-  <alert ng-repeat="task in dsTaskAssignedByYouToAnotherCtrl.tasks" type="{{task.priorityClass}}">
+  <alert ng-repeat="task in dsTaskListAssignedCtrl.tasks.assignedByYouToAnother" type="{{task.priorityClass}}">
     <span ng-bind="task.msg"></span>
-    <span class="pull-right glyphicon glyphicon-trash"></span>
+    <ds-task-trash-btn task="task"></ds-task-trash-btn>
     <b>
       <span class="task help-block text-small">
         Assigned to <span ng-bind="task.author"></span> on <span ng-bind="task.createdOn"></span>

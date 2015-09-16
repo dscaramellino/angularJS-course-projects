@@ -1,13 +1,14 @@
 <div class="container">
+
   <div class="row">
 
-    <div class="col-md-10">
-      <table class="table table-responsive table-striped table-hover">
+    <div class="col-md-8">
+      <table class="table table-borderedtable-responsive table-striped table-hover">
         <thead>
-          <tr>
+          <tr class="inverted">
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Current Status</th>
+            <th>Status</th>
             <th>Last Login</th>
             <th>DOE Email</th>
             <th>Job Title</th>
@@ -22,14 +23,14 @@
             <td ng-bind="user.status"></td>
             <td ng-bind="user.lastLogin"></td>
             <td ng-bind="user.authenticationEmail"></td>
-            <td ng-bind="user.profile.title"></td>
+            <td><input type="text" class="form-control input-sm" ng-model="user.profile.title"></td>
             <td><select ng-options="account.name for account in editProfileCtrl.accounts" class="input-sm form-control" ng-model="user.gafeEmail"></select></td>
             <td><input type="radio" ng-checked="user.toolGroups.toolEditor" ng-model="user.toolGroups.toolEditor"></td>
           </tr>
         </tbody>
-
       </table>
     </div>
+
   </div>
 
   <pre>{{userManagerCtrl | json}}</pre>

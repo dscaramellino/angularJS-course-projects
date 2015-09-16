@@ -8,7 +8,7 @@
       restrict: 'E',
       templateUrl: 'app/components/userDirectory/dsDirectoryListGroup.html',
       scope: {
-        users: '=users',
+        users: '=',
         title: '@'
       },
       controller: 'dsDirectoryListGroupController',

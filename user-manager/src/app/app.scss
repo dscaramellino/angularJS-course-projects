@@ -94,30 +94,29 @@ h2.profile {
   margin-top: 20px;
 }
 
-th {
-  text-align: center;
-}
-
 th, td {
-  min-width: 115px;
   font-size: 12px;
 }
 
-th:last-child, td:last-child {
-  min-width: 75px;
-  text-align: center;
+td:nth-child(1), td:nth-child(2), td:nth-child(3) {
+  min-width: 100px;
 }
 
-th:nth-child(1), td:nth-child(1), th:nth-child(2), td:nth-child(2) {
-  min-width: 75px;
+td:nth-child(4), td:nth-child(5), td:nth-child(6)  {
+  min-width: 140px;
 }
 
-td:nth-child(3), td:nth-child(4) {
-  text-align: center;
-}
-
-th:nth-child(7), td:nth-child(7) {
+td:nth-child(7) {
   min-width: 200px;
+}
+
+td:last-child {
+  min-width: 175px;
+  text-align: center;
+}
+
+th:nth-child(6), th:nth-child(7), th:nth-child(8) {
+  text-align: center !important;
 }
 
 .padding-left-5 {

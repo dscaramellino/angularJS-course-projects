@@ -1,12 +1,12 @@
 <tabset>
   <tab heading="Open Tasks" active>
-    <ds-task-assigned-to-you-open tasks="dsTasksManagerCtrl.tasks.list"></ds-task-list>
+    <ds-task-list-open tasks="dsTasksManagerCtrl.tasks"></ds-task-list-open>
   </tab>
   <tab heading="Archived">
-    <ds-task-assigned-to-you-archived tasks="dsTasksManagerCtrl.tasks.list"></ds-task-list>
+    <ds-task-list-archived tasks="dsTasksManagerCtrl.tasks"></ds-task-list-archived>
   </tab>
   <tab heading="Assigned By You">
-    <ds-task-assigned-by-you-to-another tasks="dsTasksManagerCtrl.tasks.list"></ds-task-list>
+    <ds-task-list-assigned tasks="dsTasksManagerCtrl.tasks"></ds-task-list-assigned>
   </tab>
 
   <tab select="addTask()">

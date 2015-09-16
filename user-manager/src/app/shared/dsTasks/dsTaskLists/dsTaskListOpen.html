@@ -1,8 +1,8 @@
 <div class="tasks">
   <br>
-  <alert ng-repeat="task in dsTaskAssignedToYouOpenCtrl.tasks" type="{{task.priorityClass}}">
+  <alert ng-repeat="task in dsTaskListOpenCtrl.tasks.assignedToYouOpen" type="{{task.priorityClass}}">
     <span ng-bind="task.msg"></span>
-    <span class="pull-right glyphicon glyphicon-ok"></span>
+    <ds-task-archive-btn task="task"></ds-task-archive-btn>
     <b>
       <span class="task help-block text-small">
         Assigned by <span ng-bind="task.author"></span> on <span ng-bind="task.createdOn"></span>

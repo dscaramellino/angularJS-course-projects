@@ -6,9 +6,9 @@
   .directive('dsTasksManager', function() {
     return {
       restrict: 'E',
-      templateUrl: 'app/shared/dsTasks/dsTasksManager.html',
+      templateUrl: 'app/shared/dsTasks/dsTaskManager/dsTasksManager.html',
       scope: {
-        tasks: '=tasks'
+        tasks: '='
       },
       controller: 'dsTasksManagerController',
       controllerAs: 'dsTasksManagerCtrl',
@@ -16,7 +16,6 @@
     };
   })
 
-  .controller('dsTasksManagerController', function() {
-  })
+  .controller('dsTasksManagerController', function() {});
 
 })();

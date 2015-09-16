@@ -5,18 +5,25 @@
 
   .factory('TaskList', function(UtilitiesService) {
 
-    var TaskList = function(tasks) {
-      this.list = tasks;
+    var TaskList = function(config) {
+      angular.extend(this, config);
     };
 
     TaskList.buildTaskListWithData = function(tasks, loggedInUserId) {
-      var processedTasks = [];
+      var config = {
+        assignedToYouOpen: [],
+        assignedToYouArchived: [],
+        assignedByYouToAnother: []
+      };
       if (tasks) {
         for (var i=0; i<tasks.length; i++) {
-          processedTasks.push(processTask(tasks[i], loggedInUserId));
+          var task = processTask(tasks[i], loggedInUserId);
+          if (task.taskType === 'assignedToYouOpen') config.assignedToYouOpen.push(task);
+          if (task.taskType === 'assignedToYouArchived') config.assignedToYouArchived.push(task);
+          if (task.taskType === 'assignedByYouToAnother') config.assignedByYouToAnother.push(task);
         }
       };
-      return new TaskList(processedTasks);
+      return new TaskList(config);
     };
 
 //newTask._id = Math.floor(Math.random()*90000) + 10000;
@@ -74,6 +81,10 @@
     };
 
     return TaskList;
+
+  })
+
+  .factory('Task', function() {
 
   })
 

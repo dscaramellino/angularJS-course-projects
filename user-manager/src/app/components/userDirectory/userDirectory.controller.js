@@ -28,12 +28,6 @@
     });
 
     self.evaluateFilter = function() {
-      if (self.searchContext.usersRole.clusterIds === null) {
-        delete self.searchContext.usersRole.clusterIds;
-      }
-      if (self.searchContext.usersRole.schoolIds === null) {
-        delete self.searchContext.usersRole.schoolIds;
-      }
       var filterFunction = $filter('filter');
       self.users.all = filterFunction(allList, self.searchContext);
       self.users.staff = filterFunction(staffList, self.searchContext);

@@ -1,0 +1,15 @@
+<a ng-if="dsTaskBtnCtrl.btntype === 'add'" href="#">
+</a>
+
+<a ng-if="dsTaskBtnCtrl.btntype === 'archive'" href="#">
+  <span class="glyphicon glyphicon-ok" ng-click="dsTaskBtnCtrl.actions.moveTask(dsTaskBtnCtrl.tasks, dsTaskBtnCtrl.task, 'Archived')"></span>
+</a>
+
+<a ng-if="dsTaskBtnCtrl.btntype === 'open'" href="#">
+  <span class="glyphicon glyphicon glyphicon-refresh" ng-click="dsTaskBtnCtrl.actions.moveTask(dsTaskBtnCtrl.tasks, dsTaskBtnCtrl.task, 'Open')"></span>
+</a>
+
+<a ng-if="dsTaskBtnCtrl.btntype === 'trash'" href="#">
+  <span class="glyphicon glyphicon glyphicon-trash" ng-click="dsTaskBtnCtrl.actions.moveTask(dsTaskBtnCtrl.tasks, dsTaskBtnCtrl.task, 'Trashed')"></span>
+</a>
+

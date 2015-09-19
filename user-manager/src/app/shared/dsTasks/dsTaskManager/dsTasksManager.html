@@ -1,20 +1,18 @@
 <tabset>
   <tab heading="Open Tasks" active>
-    <ds-task-list-open tasks="dsTasksManagerCtrl.tasks"></ds-task-list-open>
+    <ds-task-lists tasklists="dsTasksManagerCtrl.tasklists" type="assignedToYouOpen"></ds-task-lists>
   </tab>
   <tab heading="Archived">
-    <ds-task-list-archived tasks="dsTasksManagerCtrl.tasks"></ds-task-list-archived>
+    <ds-task-lists tasklists="dsTasksManagerCtrl.tasklists" type="assignedToYouArchived"></ds-task-lists>
   </tab>
   <tab heading="Assigned By You">
-    <ds-task-list-assigned tasks="dsTasksManagerCtrl.tasks"></ds-task-list-assigned>
+    <ds-task-lists tasklists="dsTasksManagerCtrl.tasklists" type="assignedByYouToAnother"></ds-task-lists>
   </tab>
-
-  <tab select="addTask()">
+  <tab select="dsTasksManagerCtrl.openNewTaskModal()">
     <tab-heading>
-      <i class="glyphicon glyphicon-plus-sign"></i> Task
+      <span class="glyphicon glyphicon-plus-sign"></span>
     </tab-heading>
   </tab>
-
 </tabset>
 
-
+<!-- <pre>{{dsTasksManagerCtrl | json}}</pre> -->

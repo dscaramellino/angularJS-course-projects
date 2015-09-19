@@ -3,9 +3,8 @@
 
   angular.module('user-manager')
 
-  .controller('UserDirectoryController', function (Users, SchoolsService, ClustersService, $filter) {
+  .controller('UserDirectoryController', function (SchoolsService, ClustersService, UsersService, $filter) {
     var self = this;
-    self.users = {};
     var allList;
     var staffList;
     var supportList;
@@ -18,10 +17,8 @@
       self.allClusters = clusters;
     });
 
-    Users.listUsersAsync(function(users) {
-      self.users.all = users.all;
-      self.users.staff = users.staff;
-      self.users.support = users.support;
+    UsersService.listUsersAsync(function(users) {
+      self.users = users;
       allList = angular.copy(users.all);
       staffList = angular.copy(users.staff);
       supportList = angular.copy(users.support);

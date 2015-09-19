@@ -5,7 +5,7 @@
     .module('user-manager')
     .config(function ($stateProvider, $urlRouterProvider) {
 
-      $urlRouterProvider.when('/', '/myProfile');
+      $urlRouterProvider.otherwise('/myProfile');
 
       $stateProvider
         .state('myProfile', {

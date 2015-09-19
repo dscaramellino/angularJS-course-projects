@@ -8,7 +8,7 @@
       restrict: 'E',
       templateUrl: 'app/shared/dsUserProfile/dsUserProfile.html',
       scope: {
-        user: '=user'
+        user: '='
       },
       controller: 'dsUserProfileController',
       controllerAs: 'dsUserProfileCtrl',
@@ -16,7 +16,7 @@
     };
   })
 
-  .controller('dsUserProfileController', function($scope, $modal) {
+  .controller('dsUserProfileController', function($modal) {
     var self = this;
 
     self.openProfileEditor = function(user){

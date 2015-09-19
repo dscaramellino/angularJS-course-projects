@@ -46,8 +46,7 @@
 
   })
 
-
-  .factory('User', function(UserResource, SchoolsService, UtilitiesService, TaskList, md5) {
+  .factory('User', function(UserResource, SchoolsService, UtilitiesService, TaskLists, md5) {
 
     var User = function(user) {
       angular.extend(this, user);
@@ -55,7 +54,7 @@
       this.status = UtilitiesService.toTitleCase(this.status);
       this.lastLogin = UtilitiesService.createReadableDate(this.lastLogin);
       this.toolGroups = processToolGroups(this.toolGroups);
-      this.tasks = TaskList.buildTaskListWithData(this.tasks, this._id);
+      this.tasklists = TaskLists.createTaskListsFromData(this.tasks, this._id)
       this.gravatarImgUrl = createGravatarImgUrl(this.gafeEmail);
       this.supportUser = processUserType(this.usersRole.type, 'support');
       this.schoolUser = processUserType(this.usersRole.type, 'school');

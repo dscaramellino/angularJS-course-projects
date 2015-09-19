@@ -8,7 +8,6 @@
     self.state = LoggedInUserService.state;
 
     var isLoading = self.state.isLoading;
-
     LoggedInUserService.loadLoggedInUserProfile(true);
 
   });

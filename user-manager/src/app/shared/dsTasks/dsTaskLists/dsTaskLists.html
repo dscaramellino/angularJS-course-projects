@@ -1,0 +1,55 @@
+<div class="tasklist">
+  <br>
+
+  <div ng-if="dsTaskListsCtrl.type === 'assignedToYouOpen'">
+    <alert ng-repeat="task in dsTaskListsCtrl.tasklists[dsTaskListsCtrl.type]" type="{{task.priorityClass}}">
+      <span ng-bind="task.msg"></span>
+      <span class="pull-right">
+        <ds-task-btn task="task" tasks="dsTaskListsCtrl.tasklists" btntype="archive"></ds-task-btn>
+      </span>
+      <b>
+        <span class="task help-block text-small">
+          Assigned by <span ng-bind="task.author"></span> on <span ng-bind="task.createdOn"></span>
+        </span>
+      </b>
+    </alert>
+  </div>
+
+  <div ng-if="dsTaskListsCtrl.type === 'assignedToYouArchived'">
+    <alert ng-repeat="task in dsTaskListsCtrl.tasklists[dsTaskListsCtrl.type]" type="{{task.priorityClass}}">
+      <span ng-bind="task.msg"></span>
+      <span class="padding-left-5 pull-right">
+        <ds-task-btn task="task" tasks="dsTaskListsCtrl.tasklists" btntype="trash"></ds-task-btn>
+      </span>
+      <span class="pull-right">
+        <ds-task-btn task="task" tasks="dsTaskListsCtrl.tasklists" btntype="open"></ds-task-btn>
+      </span>
+      <b>
+        <span class="task help-block text-small">
+          Archived on <span ng-bind="task.lastChangedOn"></span>
+        </span>
+      </b>
+    </alert>
+  </div>
+
+  <div ng-if="dsTaskListsCtrl.type === 'assignedByYouToAnother'">
+    <alert ng-repeat="task in dsTaskListsCtrl.tasklists[dsTaskListsCtrl.type]" type="{{task.priorityClass}}">
+      <span ng-bind="task.msg"></span>
+      <span class="padding-left-5 pull-right">
+        <ds-task-btn task="task" tasks="dsTaskListsCtrl.tasklists" btntype="trash"></ds-task-btn>
+      </span>
+      <b>
+        <span class="task help-block text-small">
+          Assigned to <span ng-bind="task.author"></span> on <span ng-bind="task.createdOn"></span>
+          <br>Current Status: <span ng-bind="task.status"></span>
+          <span ng-show="task.lastChangedOn"> by user on <span ng-bind="task.lastChangedOn"></span></span>
+        </span>
+      </b>
+    </alert>
+  </div>
+
+</div>
+
+<!-- <pre>{{dsTaskListsCtrl | json}}</pre> -->
+
+

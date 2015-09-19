@@ -17,7 +17,8 @@
       "author": "DOE-9999",
       "actor": "DOE-9999",
       "createdOn": 20150219,
-      "status": "Open"
+      "status": "Open",
+      "lastChangedOn": null
     },
     {
       "_id": 12346,
@@ -28,7 +29,7 @@
       "actor": "DOE-222",
       "createdOn": 20150519,
       "status": "Archived",
-      "archivedOn": 12345679
+      "lastChangedOn": 12345679
     },
     {
       "_id": 12347,
@@ -38,7 +39,8 @@
       "author": "DOE-222",
       "actor": "DOE-9999",
       "createdOn": 20151919,
-      "status": "Open"
+      "status": "Open",
+      "lastChangedOn": null
     },
     {
       "_id": 12348,
@@ -49,7 +51,7 @@
       "actor": "DOE-9999",
       "createdOn": 20151919,
       "status": "Archived",
-      "archivedOn": 12345679
+      "lastChangedOn": 12345679
     },
     {
       "_id": 12349,
@@ -60,7 +62,7 @@
       "actor": "DOE-9999",
       "createdOn": 12345789,
       "status": "Archived",
-      "archivedOn": 12345679
+      "lastChangedOn": 12345679
     }
   ],
   "sourceFlags": [

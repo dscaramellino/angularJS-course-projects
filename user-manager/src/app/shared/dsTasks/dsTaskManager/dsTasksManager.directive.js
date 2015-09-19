@@ -8,7 +8,7 @@
       restrict: 'E',
       templateUrl: 'app/shared/dsTasks/dsTaskManager/dsTasksManager.html',
       scope: {
-        tasks: '='
+        tasklists: '='
       },
       controller: 'dsTasksManagerController',
       controllerAs: 'dsTasksManagerCtrl',
@@ -16,6 +16,25 @@
     };
   })
 
-  .controller('dsTasksManagerController', function() {});
+  .controller('dsTasksManagerController', function($modal) {
+    var self = this;
+
+    self.openNewTaskModal = function(){
+      var modalInstance = $modal.open({
+        animation: true,
+        templateUrl: 'app/shared/dsTasks/dsTaskManager/newTaskInstance.html',
+        controller: 'newTaskInstanceController',
+        controllerAs: 'newTaskCtrl',
+        bindToController: true,
+        size: 'md',
+        resolve: {
+          tasklists: function () {
+            return self.tasklists;
+          }
+        }
+      });
+    }
+
+  });
 
 })();

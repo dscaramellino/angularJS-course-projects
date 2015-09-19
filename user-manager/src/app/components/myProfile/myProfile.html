@@ -8,13 +8,12 @@
     </div>
 
     <div class="col-md-5">
-      <!-- can't do myProfileCtrl.state.loggedInUser.tasks.list here because list is not populated yet   -->
-      <ds-tasks-manager tasks="myProfileCtrl.state.loggedInUser.tasks"></ds-tasks-manager>
+      <ds-tasks-manager tasklists="myProfileCtrl.state.loggedInUser.tasklists"></ds-tasks-manager>
     </div>
 
   </div>
 
-  <br><br><br><br><pre>{{myProfileCtrl | json}}</pre>
+  <pre>{{myProfileCtrl | json}}</pre>
 
 </div>
 

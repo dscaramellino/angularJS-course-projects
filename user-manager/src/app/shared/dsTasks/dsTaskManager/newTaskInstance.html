@@ -1,0 +1,45 @@
+<div class="modal-header">
+  <h4 class="modal-title">New Task</h4>
+</div>
+
+<div class="modal-body bg-well">
+  <form name="newTaskCtrl.newTaskForm" class="form-horizontal" novalidate>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Priority:</label>
+      <div class="col-md-8">
+        <div class="btn-group">
+          <label class="btn btn-danger" ng-model="newTaskCtrl.task.priority" btn-radio="'high'">High</label>
+          <label class="btn btn-warning" ng-model="newTaskCtrl.task.priority" btn-radio="'med'">Med</label>
+          <label class="btn btn-info" ng-model="newTaskCtrl.task.priority" btn-radio="'low'">Low</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Description:</label>
+      <div class="col-md-8">
+        <textarea type="text" class="form-control" ng-model="newTaskCtrl.task.msg"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Assigned to:</label>
+      <div class="col-md-8">
+        <select class="form-control" ng-model="newTaskCtrl.task.actor"></select>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <p>
+    <button type="button" class="btn btn-default" ng-click="newTaskCtrl.close()">Close</button>
+    <input type="submit" class="btn btn-primary" ng-click="newTaskCtrl.save()" value="Save">
+  </p>
+  <p>
+    <alert ng-show="newTaskCtrl.showAlert" type="{{newTaskCtrl.alert.type}}" dismiss-on-timeout="5000" close="newTaskCtrl.closeAlert()">
+      <b ng-bind="newTaskCtrl.alert.title"></b>
+      <span ng-bind="newTaskCtrl.alert.msg"></span>
+    </alert>
+  </p>
+</div>
+
+<!-- <pre>{{newTaskCtrl | json}}</pre> -->

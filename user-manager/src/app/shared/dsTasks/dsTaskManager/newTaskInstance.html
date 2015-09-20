@@ -14,16 +14,18 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" ng-class="{'has-error': newTaskCtrl.newTaskForm.msg.$invalid}">
       <label class="col-md-3 control-label">Description:</label>
       <div class="col-md-8">
-        <textarea type="text" class="form-control" ng-model="newTaskCtrl.task.msg"></textarea>
+        <textarea type="text" name="msg" class="form-control" ng-model="newTaskCtrl.task.msg" required></textarea>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" ng-class="{'has-error': newTaskCtrl.newTaskForm.actor.$invalid}">
       <label class="col-md-3 control-label">Assigned to:</label>
       <div class="col-md-8">
-        <select class="form-control" ng-model="newTaskCtrl.task.actor"></select>
+        <select class="form-control" name="actor" ng-options="user as user.profile.fullName for user in newTaskCtrl.users.all" ng-model="newTaskCtrl.selectedActor" required>
+        <option value="">--- make a selection ---</option>
+      </select>
       </div>
     </div>
   </form>
@@ -42,4 +44,4 @@
   </p>
 </div>
 
-<!-- <pre>{{newTaskCtrl | json}}</pre> -->
+<!-- <pre>{{newTaskCtrl.newTaskForm | json}}</pre> -->

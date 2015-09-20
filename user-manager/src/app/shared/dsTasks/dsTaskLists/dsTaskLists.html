@@ -9,7 +9,10 @@
       </span>
       <b>
         <span class="task help-block text-small">
-          Assigned by <span ng-bind="task.author"></span> on <span ng-bind="task.createdOn"></span>
+          Assigned by <span ng-bind="task.author.name"></span> on <span ng-bind="task.createdOn"></span>
+        </span>
+        <span ng-if="task.lastChangedOn" class="task help-block text-small">
+          Re-opened on <span ng-bind="task.lastChangedOn"></span>
         </span>
       </b>
     </alert>
@@ -40,9 +43,9 @@
       </span>
       <b>
         <span class="task help-block text-small">
-          Assigned to <span ng-bind="task.author"></span> on <span ng-bind="task.createdOn"></span>
+          Assigned to <span ng-bind="task.actor.name"></span> on <span ng-bind="task.createdOn"></span>
           <br>Current Status: <span ng-bind="task.status"></span>
-          <span ng-show="task.lastChangedOn"> by user on <span ng-bind="task.lastChangedOn"></span></span>
+          <span ng-show="task.lastChangedOn"> on <span ng-bind="task.lastChangedOn"></span></span>
         </span>
       </b>
     </alert>

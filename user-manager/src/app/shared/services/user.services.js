@@ -46,7 +46,7 @@
 
   })
 
-  .factory('User', function(UserResource, SchoolsService, UtilitiesService, TaskLists, md5) {
+  .factory('User', function(SchoolsService, UtilitiesService, TaskLists, md5) {
 
     var User = function(user) {
       angular.extend(this, user);

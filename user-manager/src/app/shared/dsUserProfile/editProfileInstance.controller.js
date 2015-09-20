@@ -32,11 +32,6 @@
           loggedInUser.patchEditableFields(self.user);
           LoggedInUserService.state.loggedInUser = loggedInUser;
           self.close();
-          // LoggedInUserService.updateUserByIdAsync(loggedInUser._id, loggedInUser, function(updatedLoggedInUser) {
-          //   console.log('Success');
-          //   LoggedInUserService.state.loggedInUser = updatedLoggedInUser;
-          //   self.close();
-          // });
         } else {
           self.alert = alertFail;
           self.showAlert = true;

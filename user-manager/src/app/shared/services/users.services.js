@@ -3,24 +3,28 @@
 
   angular.module('user-manager')
 
-  .service('UsersService', function(UsersResource, Users, User) {
+  .service('UsersService', function(UsersResource, Users) {
     var self = this;
-    self.users = {};
 
     self.listUsersAsync = function(callback) {
       UsersResource.listUsers().$promise
       .then(function (response) {
-        var users = buildUsersWithData(response);
-        self.users.all = users.all;
-        self.users.staff = users.staff;
-        self.users.support = users.support;
+        var users = Users.buildUsersWithData(response);
         if (callback) callback(users);
       }).catch(function (errorResponse) {
         console.log(errorResponse);
       });
     }
 
-    var buildUsersWithData = function(data) {
+  })
+
+  .factory('Users', function(User) {
+
+    var Users = function(config) {
+      angular.extend(this, config);
+    }
+
+    Users.buildUsersWithData = function(data) {
       var config = {
         all: [],
         staff: [],
@@ -36,14 +40,6 @@
         }
       });
       return new Users(config);
-    }
-
-  })
-
-  .factory('Users', function(UsersResource, User) {
-
-    var Users = function(config) {
-      angular.extend(this, config);
     }
 
     return Users;

@@ -5,6 +5,9 @@
 
   .controller('UserDirectoryController', function (SchoolsService, ClustersService, UsersService, $filter) {
     var self = this;
+    self.users;
+    self.allSchools;
+    self.allClusters;
     var allList;
     var staffList;
     var supportList;

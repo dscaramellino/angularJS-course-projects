@@ -6,15 +6,17 @@
   .service('TaskListsService', function(LoggedInUserService, Task) {
     var self = this;
 
-    var loggedInUserId = LoggedInUserService.state.loggedInUser._id;
+    var loggedInUser = LoggedInUserService.state.loggedInUser
+    var loggedInUserId = loggedInUser._id;
+    var loggedInUserName = loggedInUser.profile.fullName;
 
     self.createNewTask = function() {
-      return Task.createBlankTask(loggedInUserId);
+      return Task.createBlankTask(loggedInUserId, loggedInUserName);
     }
 
     self.addNewTaskToTaskList = function(tasklists, task) {
-      task.processTask();
-      tasklists.addTaskToList(task, loggedInUserId)
+      task.processTask(loggedInUserId);
+      tasklists.addTaskToList(task);
     }
 
     self.moveTask = function(tasklists, task, newStatus) {
@@ -32,11 +34,11 @@
       this.trashed = [];
     };
 
-    TaskLists.createTaskListsFromData = function(tasks, userId) {
+    TaskLists.createTaskListsFromData = function(tasks, loggedInUserId) {
       var tasklists = new TaskLists();
       if (tasks) {
         for (var i=0; i<tasks.length; i++) {
-          var task = new Task(tasks[i], userId);
+          var task = new Task(tasks[i], loggedInUserId);
           tasklists.addTaskToList(task);
         }
       };
@@ -47,11 +49,11 @@
       this[task.taskType].push(task);
     }
 
-    TaskLists.prototype.moveTask = function(task, newStatus, userId) {
+    TaskLists.prototype.moveTask = function(task, newStatus, loggedInUserId) {
       var taskId = task._id;
       var oldTaskType = task.taskType;
       var oldList = this[oldTaskType];
-      task.changeStatus(newStatus, userId);
+      task.changeStatus(newStatus, loggedInUserId);
       var removed = false;
       for (var i=0; i<oldList.length; i++) {
         if (oldList[i]._id === taskId) {
@@ -60,7 +62,6 @@
         }
       }
       if (removed) {
-        console.log(task)
         this.addTaskToList(task);
       }
     }
@@ -71,18 +72,21 @@
 
   .factory('Task', function(UtilitiesService) {
 
-    var Task = function(task, userId) {
+    var Task = function(task, loggedInUserId) {
       angular.extend(this, task);
-      if (userId) this.processTask(userId);
+      if (loggedInUserId) this.processTask(loggedInUserId);
     };
 
-    Task.createBlankTask = function(userId) {
+    Task.createBlankTask = function(loggedInUserId, loggedInUserName) {
       var task = {
         priority: 'low',
         msg: '',
         source: null,
-        author: userId,
-        actor: null,
+        author: {
+          id: loggedInUserId,
+          name: loggedInUserName
+        },
+        actor: {},
         createdOn: new Date(),
         status: 'Open',
         lastChangedOn: null
@@ -90,26 +94,26 @@
       return new Task(task);
     };
 
-    Task.prototype.changeStatus = function(newStatus, userId) {
+    Task.prototype.changeStatus = function(newStatus, loggedInUserId) {
       this.status = newStatus;
       this.lastChangedOn = new Date();
-      this.processTask(userId);
+      this.processTask(loggedInUserId);
     };
 
-    Task.prototype.processTask = function(userId) {
-      this.taskType = getTaskType(this.author, this.actor, this.status, userId);
+    Task.prototype.processTask = function(loggedInUserId) {
+      this.taskType = getTaskType(this.author.id, this.actor.id, this.status, loggedInUserId);
       this.priorityClass = getTaskPriorityClass(this.priority);
       this.createdOn = UtilitiesService.createReadableDate(this.createdOn);
       this.lastChangedOn = UtilitiesService.createReadableDate(this.lastChangedOn);
     }
 
-    var getTaskType = function(author, actor, status, userId) {
+    var getTaskType = function(authorId, actorId, status, loggedInUserId) {
       if (status === 'Trashed') {
         return 'trashed';
       }
-      if (author === userId && actor !== userId) {
+      if (authorId === loggedInUserId && actorId !== loggedInUserId) {
         return 'assignedByYouToAnother';
-      } else if (actor === userId) {
+      } else if (actorId === loggedInUserId) {
         if (status === 'Open') {
           return 'assignedToYouOpen';
         } else if (status === 'Archived') {

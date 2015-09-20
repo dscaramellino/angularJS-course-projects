@@ -2,7 +2,7 @@
 
 # My profile page...
 
-- user can view and edit his or her own profile
+- logged in user can view and edit his or her own profile
 - edit profile modal is validated on required fields
 - users can view and add tasks through the task manager
 - tasks can be moved from one category to another (open to archived, archived to trash, etc.)
